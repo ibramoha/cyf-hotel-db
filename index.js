@@ -21,10 +21,13 @@ app.set("view engine", "hbs");
 app.use(express.static("public"));
 app.use(express.static("assets"));
 
-app.use("/api", apiRouter);
 
 // handle HTTP POST requests
+app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
+
+app.use("/api", apiRouter);
+
 
 app.get("/", function(req, res, next) {
   res.render("home");
