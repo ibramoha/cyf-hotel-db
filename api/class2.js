@@ -65,7 +65,7 @@ router.post('/customers/', function (req, res) {
   //   email: 'laurie@ainley.com'
   // }
   // TODO: add code here
-  if(req.body.title.length != 0 && req.body.firstname.length != 0 && req.body.surname.length != 0 && req.body.email.length != 0){
+  if (req.body.title.length != 0 && req.body.firstname.length != 0 && req.body.surname.length != 0 && req.body.email.length != 0) {
     db.run(`insert into customers (title, firstname, surname, email) 
             values ('${req.body.title}', 
                     '${req.body.firstname}', 
@@ -97,34 +97,42 @@ router.put('/customers/:id', function (req, res) {
       email     = '${req.body.email}'
   where id = ${req.params.id}`
 
-  db.run(sql,function (err) {
-      if (err) {
-        return console.error(err.message);
-      }
-      console.log(`Row(s) updated: ${this.changes}`);
-    })
+  db.run(sql, function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log(`Row(${req.params.id}) updated: ${this.changes}`);
+  })
 });
 
 
+
+router.delete('/customers/:id', function (req, res) {
+
+  let id = req.params.id;
+
+  db.run(`delete from customers where id=?`, id, function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log(`Row(s) deleted ${this.changes}`);
+  });
+
+
+});
+
 // get '/reservations'
 // TODO: add code here
+router.get('/reservations', function (req, res) {
 
+  var sql = 'select * from reservations';
 
-// get '/reservations/:id'
-// TODO: add code here
-
-
-// delete '/reservations/:id'
-// TODO: add code here
-
-
-// get '/reservations/starting-on/:startDate'
-// TODO: add code here
-
-
-// get '/reservations/active-on/:date'
-// TODO: add code here
-
+  db.all(sql, [], (err, rows) => {
+    res.status(200).json({
+      reservations: rows
+    });
+  });
+});
 
 // post '/reservations'
 // EXPECTED JSON Object:
@@ -136,6 +144,97 @@ router.put('/customers/:id', function (req, res) {
 //   room_price: 129.90
 // }
 // TODO: add code here
+router.post('/reservations/', function (req, res) {
+
+  if (req.body.customerId.length != 0 && req.body.roomId.length != 0 && req.body.checkInDate.length != 0 && req.body.checkOutDate.length != 0 && req.body.roomPrice.length != 0) {
+    db.run(`insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) 
+            values ('${req.body.customerId}',
+                    '${req.body.roomId}',
+                    '${req.body.checkInDate}', 
+                    '${req.body.checkOutDate}', 
+                    '${req.body.roomPrice}')`
+    );
+  } else {
+    res.status(400);
+    console.log("BAD REQUEST");
+  }
+
+
+});
+
+// get '/reservations/:id'
+// TODO: add code here
+
+router.get('/reservations/:id', function (req, res) {
+
+  var num = Number(req.params.id);
+  var sql = 'select * from reservations where id =' + num;
+  console.log(typeof num);
+
+  if (isNaN(num)) {
+    res.status(400);
+    res.send('400 - BAD REQUEST');
+  }
+  else {
+    db.all(sql, [], (err, rows) => {
+      res.status(200).json({
+        reservations: rows
+      });
+    });
+  }
+});
+
+// delete '/reservations/:id'
+// TODO: add code here
+
+router.delete('/reservations/:id', function (req, res) {
+
+  let id = req.params.id;
+
+  db.run(`delete from reservations where rowid=?`, id, function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log(`Row(${req.params.id}) deleted ${this.changes}`);
+  });
+
+})
+
+// get '/reservations/starting-on/:startDate'
+// TODO: add code here
+
+router.get('/reservations/starting-on/:startDate', function (req, res) {
+
+  let date = req.params.startDate.replace(/-/gi, '/');
+  let sql = 'select * from reservations where checkInDate =' + "'" + date + "'";
+
+  console.log(date);
+
+  db.all(sql, [], (err, rows) => {
+    res.status(200).json({
+      reservations: rows
+
+    });
+  });
+});
+
+
+
+
+
+// get '/reservations/active-on/:date'
+// TODO: add code here
+
+router.get('/reservations/active-on/:date', function(req, res) {
+  let date = req.params.date.replace(/-/gi, '/');
+  console.log(date);
+  let sql = `select * from reservations where checkInDate <= '${date}' and checkOutDate >= '${date}'`;
+  db.all(sql, [], (err, rows ) => {
+    res.status(200).json({
+      reservations: rows
+    });
+  });
+});
 
 
 // get `/detailed-invoices'
