@@ -65,6 +65,7 @@ router.post('/customers/', function (req, res) {
   //   email: 'laurie@ainley.com'
   // }
   // TODO: add code here
+  console.log(req.body);
   if (req.body.title.length != 0 && req.body.firstname.length != 0 && req.body.surname.length != 0 && req.body.email.length != 0) {
     db.run(`insert into customers (title, firstname, surname, email) 
             values ('${req.body.title}', 

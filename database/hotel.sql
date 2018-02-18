@@ -75,16 +75,16 @@ create table reservations(
 	foreign key(roomId)  references rooms(id)
 	);
 
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (1, 1, '01/01/2016', '06/01/2017', 100);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (2, 3, '01/01/2015', '06/04/2017', 101);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (3, 2, '01/01/2017', '06/01/2017', 102);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (4, 5, '01/01/2014', '06/01/2017', 103);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (5, 6, '01/01/2013', '06/01/2017', 104);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (6, 4, '01/01/2012', '06/01/2017', 105);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (7, 7, '02/01/2015', '06/01/2017', 106);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (8, 8, '01/01/2011', '06/01/2017', 107);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (9, 9, '01/01/2015', '06/01/2019', 108);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (10,10, '01/01/2010', '06/01/2011', 109);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (1, 1, '01/01/2017', '03/01/2017', 100);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (2, 3, '03/01/2017', '05/04/2017', 101);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (3, 2, '01/07/2017', '06/08/2017', 102);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (4, 5, '01/08/2017', '06/09/2017', 103);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (5, 6, '01/09/2017', '09/11/2017', 104);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (6, 4, '01/04/2017', '06/07/2017', 105);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (7, 7, '02/05/2017', '06/08/2017', 106);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (8, 8, '08/08/2017', '06/10/2017', 107);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (9, 9, '01/04/2017', '06/04/2017', 108);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (10,10, '01/01/2017', '06/01/2017', 109);
 
 
 
