@@ -4,7 +4,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 const filename = './database/database.sqlite3';
 let db = new sqlite3.Database(filename);
-
+db.run("PRAGMA foreign_keys = ON");
 const router = express.Router();
 
 
@@ -236,6 +236,8 @@ router.get('/reservations/active-on/:date', function(req, res) {
     });
   });
 });
+
+
 
 
 // get `/detailed-invoices'
