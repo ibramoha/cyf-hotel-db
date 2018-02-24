@@ -85,7 +85,7 @@ insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPri
 insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (8, 8, '08/08/2017', '06/10/2017', 107);
 insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (9, 9, '01/04/2017', '06/04/2017', 108);
 insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (10,10, '01/01/2017', '06/01/2017', 109);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (4,10, '01/01/2017', '06/01/2017', 109);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (4,10, '01/03/2017', '06/01/2017', 109);
 
 
 
