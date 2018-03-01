@@ -79,6 +79,17 @@ router.get('/rooms-served-once/times/:count/', function (req, res) {
 // get '/reservations/details-between/:from_day/:to_day'
 // TODO: add for code here
 
+router.get('/reservations/details-between/:from_day/:to_day', function (req, res) {
+  const start_time = req.params.from_day;
+  const finish_time = req.params.to_day;
+  // var sql = 'select customers.title,firstname,surname,reservations.id,checkInDate,checkOutDate,count(*) from reservations join customers on reservations.customerId =' + id;
+  var sql = `select customers.id, customers.title,customers.firstname, reservations.id from customers join reservations on customers.id = reservations.customerId where reservations.checkInDate between  ${finish_time} and ${start_time}`;
+  db.all(sql, [], (err, rows) => {
+    res.status(200).json({
+      rooms: rows
+    });
+  });
+});
 // HOMEWORK
 // get '/reservations-per-customer/'
 // TODO: add code here

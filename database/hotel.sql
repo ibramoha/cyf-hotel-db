@@ -29,7 +29,6 @@ create table room_types(
 );
 
 
-insert into room_types (type_name, original_price, current_price) values ('One-Bedroom', 200.04, 350);
 insert into room_types (type_name, original_price, current_price) values ('Two-Bedroom', 600.01, 700.05);
 insert into room_types (type_name, original_price, current_price) values ('Three-Bedroom', 739.05, 800.05);
 insert into room_types (type_name, original_price, current_price) values ('One-Bedroom', 200.04, 350);
@@ -38,6 +37,7 @@ insert into room_types (type_name, original_price, current_price) values ('Three
 insert into room_types (type_name, original_price, current_price) values ('One-Bedroom', 200.04, 350);
 insert into room_types (type_name, original_price, current_price) values ('Two-Bedroom', 600.01, 700.05);
 insert into room_types (type_name, original_price, current_price) values ('Three-Bedroom', 739.05, 800.05);
+insert into room_types (type_name, original_price, current_price) values ('One-Bedroom', 200.04, 350);
 insert into room_types (type_name, original_price, current_price) values ('One-Bedroom', 200.04, 350);
 
 
@@ -75,17 +75,17 @@ create table reservations(
 	foreign key(roomId)  references rooms(id)
 	);
 
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (1, 1, '01/01/2017', '03/01/2017', 100);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (2, 3, '03/01/2017', '05/04/2017', 101);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (3, 2, '01/07/2017', '06/08/2017', 102);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (1, 5, '01/08/2017', '06/09/2017', 103);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (5, 6, '01/09/2017', '09/11/2017', 104);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (6, 4, '01/04/2017', '06/07/2017', 105);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (7, 7, '02/05/2017', '06/08/2017', 106);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (8, 8, '08/08/2017', '06/10/2017', 107);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (9, 9, '01/04/2017', '06/04/2017', 108);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (10,10, '01/01/2017', '06/01/2017', 109);
-insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (4,10, '01/03/2017', '06/01/2017', 109);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (1, 1, '2017/01/02', '2017/02/02', 100);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (2, 3, '2017/01/06', '2017/02/02', 101);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (3, 2, '2017/07/01', '2017/08/02', 102);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (1, 5, '2017/08/01', '2017/09/02', 103);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (5, 6, '2017/09/01', '2017/10/02', 104);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (6, 4, '2017/04/01', '2017/06/02', 105);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (7, 7, '2017/05/02', '2017/07/02', 106);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (8, 8, '2017/01/02', '2017/09/02', 107);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (9, 9, '2017/03/02', '2017/05/02', 108);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (10,10,'2017/01/02', '2017/05/02', 109);
+insert into reservations (customerId, roomId, checkInDate, checkOutDate, roomPrice) values (4,10, '2017/01/02', '2017/03/02', 109);
 
 
 
@@ -102,16 +102,16 @@ create table invoices (
     
 );
 
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (1, 1000.00, '01/01/2018',1);
-insert into invoices (reservation_id, total, invoice_date_time, paid) values ( 8, 3444.50, '01/01/2017', 1);
-insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 7, 3445.50, '01/01/2017', 0);
-insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 9, 143.50, '01/01/2017', 1);
-insert into invoices (reservation_id, total, invoice_date_time) values ( 2, 250.50, '02/01/2017');
-insert into invoices (reservation_id, total,  invoice_date_time) values ( 5, 431.50, '03/01/2017');
-insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 3, 300.50, '04/01/2017', 1);
-insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 6, 284.35, '04/01/2017', 1);
-insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 10, 284.35, '04/01/2017', 1);
-insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 4, 284.35, '04/01/2017', 1);
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (1, 1000.00, '2018/01/01',1);
+insert into invoices (reservation_id, total, invoice_date_time, paid) values ( 8, 3444.50, '2017/01/01', 1);
+insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 7, 3445.50, '2017/05/05', 0);
+insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 9, 143.50, '2017/06/04', 1);
+insert into invoices (reservation_id, total, invoice_date_time) values ( 2, 250.50, '2017/01/09');
+insert into invoices (reservation_id, total,  invoice_date_time) values ( 5, 431.50, '2017/06/02');
+insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 3, 300.50, '2017/06/04', 1);
+insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 6, 284.35, '2017/07/09', 1);
+insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 10, 284.35, '2017/01/05', 1);
+insert into invoices (reservation_id, total,  invoice_date_time, paid) values ( 4, 284.35, '2017/01/03', 1);
 
 
 
